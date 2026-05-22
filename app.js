@@ -38,6 +38,16 @@ async function fetchTopStories() {
     articles.forEach(story => {
       // THE MAGIC TRICK: Append the flag so your Chrome extension auto-triggers
       const automaticReaderUrl = `${story.url}?reader=true`;
+
+      // Check if multimedia exists and grab the standard or large image URL
+      let imageUrl = '';
+      if (story.multimedia && story.multimedia.length > 0) {
+        // Look for the high-res desktop version first
+        const highResImage = story.multimedia.find(media => media.format === 'Super Jumbo' || media.format === 'threeByTwoSmallAt2X');
+        
+        // If we find it, use it! Otherwise, fall back to whatever first image is available.
+        imageUrl = highResImage ? highResImage.url : story.multimedia[0].url; 
+      }
       
       // Clean up the author string (removes "By " if present, handles missing authors)
       const cleanAuthor = story.byline ? story.byline.toUpperCase() : 'STAFF WRITER';
@@ -50,6 +60,7 @@ async function fetchTopStories() {
       // Build the interior minimalist DOM string
       articleCard.innerHTML = `
         <a href="${automaticReaderUrl}" class="story-link">
+          ${imageUrl ? `<div class="story-image-wrapper"><img src="${imageUrl}" alt="" class="story-img"></div>` : ''}
           <h2 class="story-title">${story.title}</h2>
           <p class="story-abstract">${story.abstract || 'No abstract preview available for this story.'}</p>
           <div class="story-meta">
