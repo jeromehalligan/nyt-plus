@@ -244,8 +244,9 @@ body {
 
 /* Control Buttons */
 .return-dashboard-btn {
-  cursor: pointer;
-  position: absolute;
+  position: fixed !important;
+  z-index: 9999999 !important; 
+  cursor: pointer !important;
     top: 150px;
     right: 60px;
     background: #fff;
