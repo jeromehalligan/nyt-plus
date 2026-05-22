@@ -65,21 +65,63 @@ body {
   margin: 0 auto;
 }
 
-.feed-grid {
+/* --- THE MAIN NEWSPAPER HUB --- */
+#feed-grid.feed-grid {
   display: grid;
-  grid-template-columns: 1fr; 
-  gap: 40px;
+  /* Creates 3 columns matching the Times Reader ratio: ~45%, ~27.5%, ~27.5% */
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 32px;
+  padding: 24px 0; /* Keeps your padding alignment clean */
+  max-width: 1350px;
+  margin: 0 auto;
+  align-items: start;
 }
 
-/* --- INDIVIDUAL EDITORIAL STORY CARDS --- */
-.story-card {
-  border-bottom: 1px solid #e5e5e0;
-  padding-bottom: 40px;
-  transition: opacity 0.2s ease;
+/* --- RE-ROUTING THE INDIVIDUAL CARDS BASED ON LIST POSITION --- */
+
+/* 1. THE LEAD ANCHOR STORY (1st Article injected by app.js) */
+.story-card:nth-child(1) {
+  grid-column: 1; /* Forces it to stay in Column 1 */
+  grid-row: span 3; /* Allows it to take up vertical height */
+  border-right: 1px solid #e2e2e2;
+  padding-right: 32px;
 }
 
-.story-card:last-child {
-  border-bottom: none;
+.story-card:nth-child(1) .story-title {
+  font-size: 2.2rem !important; /* Makes the lead headline massive and dominant */
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+/* 2. THE SECONDARY STORIES (2nd and 3rd Articles) */
+.story-card:nth-child(2),
+.story-card:nth-child(3) {
+  grid-column: 2; /* Automatically stacks them into the center Column 2 */
+  border-right: 1px solid #e2e2e2;
+  padding-right: 32px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.story-card:nth-child(2) .story-title,
+.story-card:nth-child(3) .story-title {
+  font-size: 1.4rem !important; /* Slightly smaller text for secondary space */
+}
+
+/* 3. THE BULLET HEADLINE STACK (4th Article and everything after) */
+.story-card:nth-child(n+4) {
+  grid-column: 3; /* Spits every single remaining story into the right Column 3 */
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Condense the abstracts on the right column so it acts like a tight list */
+.story-card:nth-child(n+4) .story-abstract {
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: #444;
 }
 
 .story-link {
