@@ -1,6 +1,16 @@
 // --- CONFIGURATION ---
-const NYT_API_KEY = 'jjZE6pDdHbGNO7h59sfMXQlR7RpOYaq4m4mIBKrsAU7QUHXP'; // <-- Paste your real NYT API key here
-const SECTION = 'home'; // Options: home, politics, technology, business, science, etc.
+// Try to grab the key from the browser's hidden storage first
+let NYT_API_KEY = localStorage.getItem('nyt_key');
+
+// If it's not there, pop up a box asking you to paste it in
+if (!NYT_API_KEY) {
+  NYT_API_KEY = prompt("Please enter your New York Times API Key:");
+  if (NYT_API_KEY) {
+    localStorage.setItem('nyt_key', NYT_API_KEY); // Saves it securely in your browser forever
+  }
+}
+
+const SECTION = 'home';
 const API_URL = `https://api.nytimes.com/svc/topstories/v2/${SECTION}.json?api-key=${NYT_API_KEY}`;
 
 // --- DOM ELEMENTS ---
