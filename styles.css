@@ -243,7 +243,7 @@ body {
 }
 
 /* Control Buttons */
-return-dashboard-btn {
+.return-dashboard-btn {
   position: absolute;
     top: 150px;
     right: 60px;
