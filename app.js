@@ -49,7 +49,7 @@ async function fetchTopStories() {
       
       // Build the interior minimalist DOM string
       articleCard.innerHTML = `
-        <a href="${automaticReaderUrl}" target="_blank" class="story-link">
+        <a href="${automaticReaderUrl}" class="story-link">
           <h2 class="story-title">${story.title}</h2>
           <p class="story-abstract">${story.abstract || 'No abstract preview available for this story.'}</p>
           <div class="story-meta">
