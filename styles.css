@@ -79,6 +79,20 @@ body {
 
 /* --- RE-ROUTING THE INDIVIDUAL CARDS BASED ON LIST POSITION --- */
 
+/* --- GLOBAL IMAGE RULES --- */
+.story-image-wrapper {
+  width: 100%;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.story-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
 /* 1. THE LEAD ANCHOR STORY (1st Article injected by app.js) */
 .story-card:nth-child(1) {
   grid-column: 1; /* Forces it to stay in Column 1 */
@@ -115,6 +129,23 @@ body {
   padding-bottom: 12px;
   margin-bottom: 12px;
   border-bottom: 1px solid #f0f0f0;
+}
+
+.story-card:nth-child(1) .story-image-wrapper {
+  max-height: 400px; /* Adjust based on how dominant you want the top photo */
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 12px;
+}
+
+/* Column 2 (Secondary): Scale down to act as clean, subtle blocks */
+.story-card:nth-child(2) .story-image-wrapper,
+.story-card:nth-child(3) .story-image-wrapper {
+  max-height: 180px;
+}
+
+/* Column 3 (Headline List): Completely hide the images to save vertical space */
+.story-card:nth-child(n+4) .story-image-wrapper {
+  display: none !important;
 }
 
 /* Condense the abstracts on the right column so it acts like a tight list */
