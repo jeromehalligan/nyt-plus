@@ -149,21 +149,36 @@ body {
   margin-top: 4px;
 }
 
-.story-card:nth-child(1) .story-image-wrapper {
-  max-height: 400px; /* Adjust based on how dominant you want the top photo */
-  border-bottom: 1px solid #f0f0f0;
-  padding-bottom: 12px;
+/* --- BULLETPROOF IMAGE CONTAINER --- */
+.story-image-wrapper {
+  width: 100%;
+  margin-bottom: 14px;
+  overflow: hidden;
+  background-color: #f7f7f7; /* Subtle placeholder color while loading */
 }
 
-/* Column 2 (Secondary): Scale down to act as clean, subtle blocks */
+.story-img {
+  width: 100% !important;   /* Forces the image to shrink to the column width */
+  height: auto !important;  /* Keeps the aspect ratio perfectly intact */
+  display: block;
+  object-fit: cover;
+}
+
+/* --- PRECISION COLUMN CONSTRAINT ENGINE --- */
+
+/* Column 1 (Lead Story): Big, cinematic, but strictly bound by the column */
+.story-card:nth-child(1) .story-image-wrapper {
+  max-height: 420px; /* Limits how far down a giant image can push the text */
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 14px;
+}
+
+/* Column 2 (Secondary Stories): Keeps them compact and perfectly uniform */
 .story-card:nth-child(2) .story-image-wrapper,
 .story-card:nth-child(3) .story-image-wrapper {
-  max-height: 180px;
-}
-
-/* Column 3 (Headline List): Completely hide the images to save vertical space */
-.story-card:nth-child(n+4) .story-image-wrapper {
-  display: none !important;
+  max-height: 200px; 
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 10px;
 }
 
 /* Condense the abstracts on the right column so it acts like a tight list */
