@@ -21,7 +21,7 @@ body {
 /* --- HEADER REGION --- */
 .dashboard-header {
   max-width: 1350px; /* UNIFIED FOR GRID BOUNDARIES */
-  margin: 0 auto 60px auto;
+  margin: 0 auto .8em auto;
   border-bottom: 2px solid #1a1a1a;
   padding-bottom: 15px;
 }
