@@ -145,7 +145,8 @@ body {
 /* Strip the bottom border of the last items in column 1 and 2 */
 .col-primary .story-card:last-child,
 .col-secondary .story-card:last-child,
-.col-thirdly .story-card:last-child {
+.col-thirdly .story-card:last-child,
+.col-headlines .story-card:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
