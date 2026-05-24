@@ -103,7 +103,7 @@ body {
   line-height: 1.1em;
   margin-bottom: 12px;
   max-width: 850px; 
-}em
+}
 
 .story-meta {
   font-size: 0.6rem;
@@ -117,7 +117,7 @@ body {
 }
 
 .story-author {
-  color: #1a1a1a;
+  color: gray;
 }
 
 .story-divider {
