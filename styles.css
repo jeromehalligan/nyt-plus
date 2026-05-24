@@ -210,7 +210,11 @@ body {
   object-fit: cover;
 }
 
-.col-secondary .story-card:first-child .story-image-wrapper {
+.col-secondary .story-card:first-child .story-image-wrapper, .col-secondary .story-card:last-child .story-image-wrapper{
+  display:none;
+}
+
+.col-thirdly .story-card:second-child .story-image-wrapper {
   display:none;
 }
 
