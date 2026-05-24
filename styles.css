@@ -210,6 +210,10 @@ body {
   object-fit: cover;
 }
 
+.col-secondary .story-card:first-child .story-image-wrapper {
+  display:none;
+}
+
 /* --- PRECISION IMAGE SCALING HEIGHTS --- */
 
 /* Targets the big lead image in Column 1 */
@@ -221,7 +225,7 @@ body {
 /* Targets the two modular images in Column 2 */
 .col-secondary .story-image-wrapper {
   max-height: 200px; 
-  padding-bottom: 10px;
+  padding-bottom: 0;
 }
 
 
