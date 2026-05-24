@@ -15,7 +15,7 @@ body {
   background-color: #faf9f6; 
   color: #1a1a1a;
   line-height: 1.5;
-  padding: 60px 40px;
+  padding: 16px 40px;
 }
 
 /* --- HEADER REGION --- */
@@ -32,7 +32,7 @@ body {
   font-weight: 800;
   letter-spacing: -0.5px;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .meta-line {
