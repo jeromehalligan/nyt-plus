@@ -62,7 +62,6 @@ async function fetchTopStories() {
       }
       
       const cleanAuthor = story.byline ? story.byline.toUpperCase() : 'STAFF WRITER';
-      const cleanSection = story.section ? story.section.toUpperCase() : 'GENERAL';
       
       // Build the card string
       const cardHtml = `
@@ -73,8 +72,6 @@ async function fetchTopStories() {
             <p class="story-abstract">${story.abstract || 'No abstract preview available.'}</p>
             <div class="story-meta">
               <span class="story-author">${cleanAuthor}</span>
-              <span class="story-divider">•</span>
-              <span class="story-section">${cleanSection}</span>
             </div>
           </a>
         </article>
