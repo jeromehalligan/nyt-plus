@@ -193,6 +193,21 @@ body {
   display: none !important;
 }
 
+/* --- BULLETPROOF IMAGE CONTAINER --- */
+.story-image-wrapper {
+  width: 100%;
+  margin-bottom: 14px;
+  overflow: hidden;
+  background-color: #f7f7f7;
+}
+
+.story-img {
+  width: 100% !important;   
+  height: auto !important;  
+  display: block;
+  object-fit: cover;
+}
+
 /* --- PRECISION IMAGE SCALING HEIGHTS --- */
 
 /* Targets the big lead image in Column 1 */
@@ -204,27 +219,6 @@ body {
 
 /* Targets the two modular images in Column 2 */
 .col-secondary .story-image-wrapper {
-  max-height: 200px; 
-  border-bottom: 1px solid #eaeaea;
-  padding-bottom: 10px;
-}
-
-.story-img {
-  width: 100% !important;   
-  height: auto !important;  
-  display: block;
-  object-fit: cover;
-}
-
-/* --- PRECISION IMAGE SCALING HEIGHTS --- */
-.story-card:nth-child(1) .story-image-wrapper {
-  max-height: 420px; 
-  border-bottom: 1px solid #eaeaea;
-  padding-bottom: 14px;
-}
-
-.story-card:nth-child(2) .story-image-wrapper,
-.story-card:nth-child(3) .story-image-wrapper {
   max-height: 200px; 
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 10px;
