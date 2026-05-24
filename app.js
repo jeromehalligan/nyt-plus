@@ -43,7 +43,7 @@ async function fetchTopStories() {
     feedGrid.innerHTML = '';
     
     // 4. Loop through the articles array (filtering out any weird layout items missing URLs)
-    const articles = data.results.filter(story => story.url && story.title);
+    const articles = data.results.filter(story => story.url && story.title).slice(0, 12);
 
 // --- CREATE THREE DISCRETE COLUMNS ---
     let col1Html = '';
