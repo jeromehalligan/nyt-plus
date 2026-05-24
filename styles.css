@@ -120,10 +120,6 @@ body {
   color: gray;
 }
 
-.story-divider {
-  color: #ccc;
-}
-
 /* --- THE FOUR VERTICAL PILLARS --- */
 .grid-column {
   display: flex;
