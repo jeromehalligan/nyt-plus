@@ -49,7 +49,7 @@ async function fetchTopStories() {
     let col1Html = '';
     let col2Html = '';
     let col3Html = '';
-    let col4html = '';
+    let col4Html = '';
     
     articles.forEach((story, index) => {
       const automaticReaderUrl = `${story.url}?reader=true`;
