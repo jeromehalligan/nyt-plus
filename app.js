@@ -54,6 +54,17 @@ async function fetchTopStories() {
     articles.forEach((story, index) => {
       const automaticReaderUrl = `${story.url}?reader=true`;
 
+
+      let relatedLinksHtml = '';
+      if (story.related_urls && story.related_urls.length > 0) {
+        relatedLinksHtml = story.related_urls.map(related => `
+        <li class="related-item">
+          <a href="${related.url}" target="_blank" class="related-link">
+            ${related.title}
+          </a>
+        </li>
+        `).join('');
+      }
       // Grab image
       let imageUrl = '';
       if (story.multimedia && story.multimedia.length > 0) {
@@ -65,17 +76,21 @@ async function fetchTopStories() {
       
       // Build the card string
       const cardHtml = `
-        <article class="story-card">
-          <a href="${automaticReaderUrl}" class="story-link">
-            ${imageUrl ? `<div class="story-image-wrapper"><img src="${imageUrl}" alt="" class="story-img"></div>` : ''}
-            <h2 class="story-title">${story.title}</h2>
-            <p class="story-abstract">${story.abstract || 'No abstract preview available.'}</p>
-            <div class="story-meta">
-              <span class="story-author">${cleanAuthor}</span>
-            </div>
-          </a>
-        </article>
-      `;
+    <article class="story-card">
+      <a href="${story.url}" class="story-link">
+        ${story.multimedia ? `<div class="story-image-wrapper"><img src="${story.multimedia[0].url}" class="story-img"></div>` : ''}
+        <h2 class="story-title">${story.title}</h2>
+        <p class="story-abstract">${story.abstract || ''}</p>
+      </a>
+      
+      /* INJECT THE RELATED CONTENT ENGINE HERE */
+      ${relatedLinksHtml ? `<ul class="story-related-list">${relatedLinksHtml}</ul>` : ''}
+      
+      <div class="story-meta">
+        <span class="story-author">${story.byline || ''}</span>
+      </div>
+    </article>
+    `;
 
       // THE COG IN THE MACHINE: Distribute articles systematically by index
       if (index === 0) {
