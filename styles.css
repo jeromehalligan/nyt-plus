@@ -33,6 +33,7 @@ body {
   letter-spacing: -0.5px;
   text-transform: uppercase;
   margin-bottom: 0;
+  line-height:1;
 }
 
 .meta-line {
