@@ -67,9 +67,9 @@ body {
 /* --- THE MAIN NEWSPAPER HUB --- */
 #feed-grid.feed-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
-  gap: 32px;
-  padding: 24px 0;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 10px 0;
   max-width: 1350px;
   margin: 0 auto;
   align-items: start;
@@ -98,19 +98,19 @@ body {
 
 .story-abstract {
   font-family: 'Cheltenham Classic', 'Georgia', serif;
-  font-size: 1.05rem;
+  font-size: .9rem;
   color: #333;
-  line-height: 1.5;
+  line-height: 1;
   margin-bottom: 12px;
   max-width: 850px; 
 }
 
 .story-meta {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: #777;
+  color: gray;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -124,7 +124,7 @@ body {
   color: #ccc;
 }
 
-/* --- THE THREE VERTICAL PILLARS --- */
+/* --- THE FOUR VERTICAL PILLARS --- */
 .grid-column {
   display: flex;
   flex-direction: column;
@@ -132,7 +132,7 @@ body {
 }
 
 /* Vertical dividing rules */
-.col-primary, .col-secondary {
+.col-primary, .col-secondary, .col-thirdly {
   border-right: 1px solid #e2e2e2;
   padding-right: 32px;
 }
@@ -147,7 +147,8 @@ body {
 
 /* Strip the bottom border of the last items in column 1 and 2 */
 .col-primary .story-card:last-child,
-.col-secondary .story-card:last-child {
+.col-secondary .story-card:last-child,
+.col-thirdly .story-card:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
@@ -161,7 +162,7 @@ body {
 }
 
 /* 2. Secondary Customization */
-.col-secondary .story-title {
+.col-secondary .story-title, .col-thirdly .story-title {
   font-size: 1.35rem !important;
   line-height: 1.2;
 }
@@ -183,7 +184,7 @@ body {
 
 .col-headlines .story-meta {
   font-size: 0.72rem !important;
-  color: #666;
+  color: gray;
   margin-top: 4px;
 }
 
@@ -214,14 +215,12 @@ body {
 /* Targets the big lead image in Column 1 */
 .col-primary .story-image-wrapper {
   max-height: 420px; 
-  border-bottom: 1px solid #eaeaea;
   padding-bottom: 14px;
 }
 
 /* Targets the two modular images in Column 2 */
 .col-secondary .story-image-wrapper {
   max-height: 200px; 
-  border-bottom: 1px solid #eaeaea;
   padding-bottom: 10px;
 }
 
