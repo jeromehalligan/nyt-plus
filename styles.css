@@ -67,7 +67,6 @@ body {
 /* --- THE MAIN NEWSPAPER HUB --- */
 #feed-grid.feed-grid {
   display: grid;
-  /* Hard proportions: 45% / 27.5% / 27.5% */
   grid-template-columns: 1.6fr 1fr 1fr;
   gap: 32px;
   padding: 24px 0;
@@ -125,66 +124,55 @@ body {
   color: #ccc;
 }
 
-/* --- COLUMN 1: THE BIG LEAD ANCHOR (1st Story) --- */
-.story-card:nth-child(1) {
-  grid-column: 1;
-  /* FIXED: Removed grid-row span completely to prevent row distortion */
+/* --- THE THREE VERTICAL PILLARS --- */
+.grid-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Vertical dividing rules */
+.col-primary, .col-secondary {
   border-right: 1px solid #e2e2e2;
   padding-right: 32px;
 }
 
-.story-card:nth-child(1) .story-title {
-  font-size: 2.2rem !important;
-  line-height: 1.1;
-  margin-bottom: 12px;
-}
-
-/* --- COLUMN 2: SECONDARY STACK (2nd and 3rd Stories) --- */
-.story-card:nth-child(2),
-.story-card:nth-child(3) {
-  grid-column: 2;
-  border-right: 1px solid #e2e2e2;
-  padding-right: 32px;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+/* --- INDIVIDUAL CARD BEHAVIOR WITHIN PILLARS --- */
+.story-card {
+  width: 100%;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
   border-bottom: 1px solid #eaeaea;
 }
 
-/* FIXED: Explicitly force the 2nd story to sit at the absolute top of Column 2 */
-.story-card:nth-child(2) {
-  grid-row: 1;
-}
-/* FIXED: Forces the 3rd story to stack naturally underneath it in Column 2 */
-.story-card:nth-child(3) {
-  grid-row: 2;
+/* Strip the bottom border of the last items in column 1 and 2 */
+.col-primary .story-card:last-child,
+.col-secondary .story-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.story-card:nth-child(2) .story-title,
-.story-card:nth-child(3) .story-title {
+/* --- PILLAR SPECIFIC TYPOGRAPHY & VISIBILITY OVERRIDES --- */
+
+/* 1. Lead Anchor Customization */
+.col-primary .story-title {
+  font-size: 2.2rem !important;
+  line-height: 1.1;
+}
+
+/* 2. Secondary Customization */
+.col-secondary .story-title {
   font-size: 1.35rem !important;
   line-height: 1.2;
 }
 
-/* --- COLUMN 3: THE HIGH-DENSITY HEADLINE LIST (4th Story + onwards) --- */
-.story-card:nth-child(n+4) {
-  grid-column: 3 !important; 
-  
-  /* FIXED: Prevents grid engine from pushing items to lower rows */
-  grid-row: auto !important; 
-  
-  padding-bottom: 14px;
+/* 3. Right Headline Wire Stream Customization */
+.col-headlines .story-card {
   margin-bottom: 14px;
-  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 14px;
 }
 
-/* 1. Nuke the blurb text and images for a pure wire text list */
-.story-card:nth-child(n+4) .story-abstract,
-.story-card:nth-child(n+4) .story-image-wrapper {
-  display: none !important;
-}
-
-/* 2. Drop the font size and tighten up line spacing */
-.story-card:nth-child(n+4) .story-title {
+.col-headlines .story-title {
   font-size: 1.05rem !important;
   line-height: 1.3;
   font-weight: 700;
@@ -193,11 +181,16 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* 3. Make the metadata line tiny and elegant underneath */
-.story-card:nth-child(n+4) .story-meta {
+.col-headlines .story-meta {
   font-size: 0.72rem !important;
   color: #666;
   margin-top: 4px;
+}
+
+/* NUKE EVERYTHING EXCEPT THE HEADLINE AND META FROM COLUMN 3 */
+.col-headlines .story-abstract,
+.col-headlines .story-image-wrapper {
+  display: none !important;
 }
 
 /* --- BULLETPROOF IMAGE CONTAINMENT --- */
