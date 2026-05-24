@@ -80,12 +80,12 @@ async function fetchTopStories() {
       // THE COG IN THE MACHINE: Distribute articles systematically by index
       if (index === 0) {
         col1Html += cardHtml; // 1st story goes into Lead Column
-      } else if (index === 1 || index === 2 || index === 3) {
+      } else if (index === 1 || index === 2) {
         col2Html += cardHtml; // 2nd and 3rd and 4th go into Secondary Column
-      } else if (index === 4 || index === 5 || index === 6) {
-        col3Html += cardHtml; // 5th, 6th, 7th go into third column 
+      } else if (index === 3 || index === 4) {
+        col3Html += cardHtml; // 4th, 5th go into third column 
       } else {
-        col4Html += cardHtml; // 4th through infinity go into the Headline Column
+        col4Html += cardHtml; // 6th through 12 go into the Headline Column
       }
     });
 
