@@ -49,6 +49,7 @@ async function fetchTopStories() {
     let col1Html = '';
     let col2Html = '';
     let col3Html = '';
+    let col4html = '';
     
     articles.forEach((story, index) => {
       const automaticReaderUrl = `${story.url}?reader=true`;
@@ -81,11 +82,13 @@ async function fetchTopStories() {
 
       // THE COG IN THE MACHINE: Distribute articles systematically by index
       if (index === 0) {
-        col1Html += cardHtml; // 1st story goes to Lead Column
-      } else if (index === 1 || index === 2) {
-        col2Html += cardHtml; // 2nd and 3rd go to Secondary Column
+        col1Html += cardHtml; // 1st story goes into Lead Column
+      } else if (index === 1 || index === 2 || index === 3) {
+        col2Html += cardHtml; // 2nd and 3rd and 4th go into Secondary Column
+      } else if (index === 4 || index === 5 || index === 6) {
+        col3Html += cardHtml; // 5th, 6th, 7th go into third column 
       } else {
-        col3Html += cardHtml; // 4th through infinity go to the Headline Column
+        col4Html += cardHtml; // 4th through infinity go into the Headline Column
       }
     });
 
@@ -93,7 +96,8 @@ async function fetchTopStories() {
     feedGrid.innerHTML = `
       <div class="grid-column col-primary">${col1Html}</div>
       <div class="grid-column col-secondary">${col2Html}</div>
-      <div class="grid-column col-headlines">${col3Html}</div>
+      <div class="grid-column col-thirdly">${col3Html}</div>
+      <div class="grid-column col-headlines">${col4Html}</div>
     `;
 
   } catch (error) {
