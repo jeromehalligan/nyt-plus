@@ -155,8 +155,12 @@ body {
 
 /* 1. Lead Anchor Customization */
 .col-primary .story-title {
-  font-size: 1.8rem !important;
+  font-size: 2rem !important;
   line-height: 1.1;
+}
+
+.col-primary .story-abstract {
+  font-size: 1.1rem;
 }
 
 /* 2. Secondary Customization */
@@ -217,7 +221,7 @@ body {
 /* Targets the big lead image in Column 1 */
 .col-primary .story-image-wrapper {
   max-height: 420px; 
-  padding-bottom: 14px;
+  padding-bottom: 0;
 }
 
 /* Targets the two modular images in Column 2 */
