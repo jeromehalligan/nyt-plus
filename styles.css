@@ -197,7 +197,8 @@ body {
 .story-image-wrapper {
   width: 100%;
   margin-bottom: 14px;
-  overflow: hidden;
+  overflow: hidden;         /* THIS: Forces the image to clip neatly to your max-height limits */
+  position: relative;       /* Gives the browser a hard rendering boundary context */
   background-color: #f7f7f7;
 }
 
