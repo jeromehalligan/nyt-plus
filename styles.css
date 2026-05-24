@@ -193,12 +193,20 @@ body {
   display: none !important;
 }
 
-/* --- BULLETPROOF IMAGE CONTAINMENT --- */
-.story-image-wrapper {
-  width: 100%;
-  margin-bottom: 14px;
-  overflow: hidden;
-  background-color: #f7f7f7;
+/* --- PRECISION IMAGE SCALING HEIGHTS --- */
+
+/* Targets the big lead image in Column 1 */
+.col-primary .story-image-wrapper {
+  max-height: 420px; 
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 14px;
+}
+
+/* Targets the two modular images in Column 2 */
+.col-secondary .story-image-wrapper {
+  max-height: 200px; 
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 10px;
 }
 
 .story-img {
