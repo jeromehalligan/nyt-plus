@@ -100,10 +100,10 @@ body {
   font-family: 'Cheltenham Classic', 'Georgia', serif;
   font-size: .9rem;
   color: #333;
-  line-height: 1;
+  line-height: 1.1em;
   margin-bottom: 12px;
   max-width: 850px; 
-}
+}em
 
 .story-meta {
   font-size: 0.6rem;
@@ -134,7 +134,7 @@ body {
 /* Vertical dividing rules */
 .col-primary, .col-secondary, .col-thirdly {
   border-right: 1px solid #e2e2e2;
-  padding-right: 32px;
+  padding-right: 12px;
 }
 
 /* --- INDIVIDUAL CARD BEHAVIOR WITHIN PILLARS --- */
@@ -157,7 +157,7 @@ body {
 
 /* 1. Lead Anchor Customization */
 .col-primary .story-title {
-  font-size: 2.2rem !important;
+  font-size: 1.8rem !important;
   line-height: 1.1;
 }
 
@@ -183,7 +183,7 @@ body {
 }
 
 .col-headlines .story-meta {
-  font-size: 0.72rem !important;
+  font-size: 0.62rem !important;
   color: gray;
   margin-top: 4px;
 }
