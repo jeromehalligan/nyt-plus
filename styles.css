@@ -121,6 +121,46 @@ body {
   color: gray;
 }
 
+/* --- NESTED RELATED BREAKING LINKS --- */
+.story-related-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 16px 0;
+  border-top: 1px dashed #ccc; /* Separates sub-links cleanly from abstract text */
+  padding-top: 10px;
+}
+
+.related-item {
+  position: relative;
+  padding-left: 15px; /* Leaves space for a custom bullet mark */
+  margin-bottom: 8px;
+}
+
+/* Elegant, tight editorial bullet mark */
+.related-item::before {
+  content: "▪";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  font-size: 0.65rem;
+  color: #c32d2d; /* Optional editorial red accent color */
+}
+
+.related-link {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #222;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.related-link:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
 /* --- THE FOUR VERTICAL PILLARS --- */
 .grid-column {
   display: flex;
