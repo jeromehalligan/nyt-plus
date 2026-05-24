@@ -214,7 +214,7 @@ body {
   display:none;
 }
 
-.col-thirdly .story-card:second-child .story-image-wrapper {
+.col-thirdly .story-card:nth-child(2) .story-image-wrapper {
   display:none;
 }
 
